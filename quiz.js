@@ -4,15 +4,18 @@ function checkAnswer() {
     const correctAnswer = "4";
     
     // 2. Get the user's selected answer
-    const userAnswer = document.querySelector('input[name="quiz"]:checked');
+    const userAnswerElement = document.querySelector('input[name="quiz"]:checked');
     
     // 3. Get the feedback element
     const feedback = document.getElementById('feedback');
     
     // Check if the user has selected an answer
-    if (userAnswer) {
+    if (userAnswerElement) {
+        // Extract the value from the selected radio button
+        const userAnswer = userAnswerElement.value;
+
         // 4. Compare the user’s answer with the correct answer
-        if (userAnswer.value === correctAnswer) {
+        if (userAnswer === correctAnswer) {
             feedback.textContent = "Correct! Well done.";
             feedback.style.color = "green";
         } else {
